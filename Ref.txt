@@ -1,0 +1,53 @@
+namespace MVVMTestApp.ViewModels
+{
+    public class MainViewModel : INotifyPropertyChanged
+    {
+        //private List<Employee> _employeeList;
+
+        //public List<Employee> EmployeeList
+        //{
+        //    get { return _employeeList; }
+
+        //    set { _employeeList = value;
+        //            OnPropertyChanged();
+        //        }
+        //}
+        private readonly SignalRClient signalR;
+
+        private List<SmsContactState> _contactList;
+        public List<SmsContactState> ContactList
+        {
+            get { return _contactList; }
+
+            set
+            {
+                _contactList = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public MainViewModel()
+        {
+            //var employeeServices = new EmployeeServices();
+
+            //EmployeeList = employeeServices.GetEmployees();
+
+            signalR = new SignalRClient();
+            var contactServices = new SmsContactStateServices();
+            ContactList = contactServices.GetContacts();
+        }
+
+       #region INotifyPropertyChanged Members
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        
+    }
+}

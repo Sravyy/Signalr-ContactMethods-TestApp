@@ -1,0 +1,4 @@
+C:\Users\SravanthiVelaga(Inte\source\repos\MVVMTestApp\MVVMTestApp\MVVMTestApp.Android\obj\Debug\MVVMTestApp.Android.csproj.CoreCompileInputs.cache
+C:\Users\SravanthiVelaga(Inte\source\repos\MVVMTestApp\MVVMTestApp\MVVMTestApp.Android\obj\Debug\MVVMTestApp.Droid.App.xaml.g.cs
+C:\Users\SravanthiVelaga(Inte\source\repos\MVVMTestApp\MVVMTestApp\MVVMTestApp.Android\obj\Debug\MVVMTestApp.Droid.Views.MainPage.xaml.g.cs
+C:\Users\SravanthiVelaga(Inte\source\repos\MVVMTestApp\MVVMTestApp\MVVMTestApp.Android\obj\Debug\MVVMTestApp.Android.csprojResolveAssemblyReference.cache
