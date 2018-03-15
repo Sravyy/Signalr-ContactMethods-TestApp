@@ -10,6 +10,6 @@ namespace MVVMTestApp.Server.Models
         public string ParentContactName { get; set; }
         public int ParentNumber { get; set; }
         public string Body { get; set; }
-        //public virtual Category Category { get; set; }
+        
     }
 }

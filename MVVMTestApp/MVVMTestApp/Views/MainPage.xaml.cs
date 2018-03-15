@@ -16,5 +16,10 @@ namespace MVVMTestApp
 
             //BindingContext = new MainViewModel();
 		}
-	}
+
+        protected override void OnAppearing()
+        {
+            this.MainViewModel.Load();
+        }
+    }
 }

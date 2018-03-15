@@ -32,6 +32,10 @@ namespace MVVMTestApp.ViewModels
             //ContactList = contactServices.GetContacts();
         }
 
+        public void Load()
+        {
+           ContactList = signalR.GetContacts();
+        }
        #region INotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
 

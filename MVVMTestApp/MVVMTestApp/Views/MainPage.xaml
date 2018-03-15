@@ -6,7 +6,7 @@
              xmlns:ViewModels="clr-namespace:MVVMTestApp.ViewModels; assembly=MVVMTestApp"  >
             
 	<ContentPage.BindingContext>
-        <ViewModels:MainViewModel />
+        <ViewModels:MainViewModel x:Name="MainViewModel" />
     </ContentPage.BindingContext>
 
     <!--<ListView ItemsSource="{Binding EmployeeList}" HasUnevenRows="true">

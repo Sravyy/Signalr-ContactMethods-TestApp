@@ -13,7 +13,7 @@ namespace MVVMTestApp.Server
     public class MyHub : Hub
     {
        
-        public IEnumerable<SmsContactState> GetContacts(string jsonMessage)
+        public IEnumerable<SmsContactState> GetContacts(string param)
         {
             var Contacts = new List<SmsContactState>
             {
@@ -24,7 +24,8 @@ namespace MVVMTestApp.Server
 
             };
 
-             return Contacts; 
+            return Contacts;
+            
         }
 
         //public IEnumerable<SmsMessage> MessagesRecent(Guid smsContactId, int seconds = 10)

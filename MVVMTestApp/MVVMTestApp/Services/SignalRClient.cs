@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MVVMTestApp.Models;
 
 
 namespace MVVMTestApp.Services
@@ -30,7 +31,7 @@ namespace MVVMTestApp.Services
 
         public async Task InitializeSignalR()
         {
-            _hub = new HubConnection("http://192.168.1.67");
+            _hub = new HubConnection("http://719e6de2.ngrok.io/");
             _smsHubProxy = _hub.CreateHubProxy("MyHub");
 
             _hub.StateChanged += state =>
@@ -49,17 +50,25 @@ namespace MVVMTestApp.Services
             _hub.TraceLevel = TraceLevels.All;
             _hub.TraceWriter = Console.Out;
 
+            //_smsHubProxy.On<List<SmsContactState>>("PassContactsToClients", contacts =>
+            //{
+            //    Console.WriteLine(contacts);
+            //});
+
             await _hub.Start();
+
+          
+            
         }
 
-        public async Task GetContacts(SmsContactState smsContactState)
+        public List<SmsContactState> GetContacts()
         {
-            _smsHubProxy.Invoke<string>("GetContacts", jsonMessage =>
-            {
-
-            });
-
+           while (_hub.State != ConnectionState.Connected) Thread.Sleep(500);
+            var Task = _smsHubProxy.Invoke<List<SmsContactState>>("GetContacts", "List of Contacts");
+            Task.Wait();
+            return Task.Result;
         }
+        
 
         #region INotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
